@@ -65,11 +65,11 @@ router.post("/login", async (req, res, next) => {
 		}
 
 		// send the token back as a cookie so the client automatically stores it
-		res.cookie("token", jwt.sign(payload, process.env.JWT_SECRET))
+		// res.cookie("token", jwt.sign(payload, process.env.JWT_SECRET))
 
 		res.json({
 			message: `Welcome ${user.username}!`,
-			// token: jwt.sign(payload,  process.env.JWT_SECRET)
+		  token: jwt.sign(payload,  process.env.JWT_SECRET)
 		})
 	} catch(err) {
 		next(err)
